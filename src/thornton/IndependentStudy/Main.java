@@ -49,6 +49,18 @@ public class Main extends Application {
 	 */
 	public static void main(String[] args) {
 		launch(args);
+		installPythonModules();
+		
+	}
+	
+	private static void installPythonModules() {
+		try {
+			Process installCV2 = Runtime.getRuntime().exec("py -m pip install opencv-python");
+			Process installPIL = Runtime.getRuntime().exec("py -m pip install pillow");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }

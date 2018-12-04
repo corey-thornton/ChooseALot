@@ -1,9 +1,11 @@
 import cv2
 import numpy as np
+import sys
 from PIL import Image
 
 
-def openSpots(lotSize,ParkingLotImage,widthHeight):
+def openSpots(lotSize,ParkingLotImage,dimensions):
+	width
     #Image Processing
     img = cv2.imread(ParkingLotImage)
     gray_image = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -39,11 +41,11 @@ def openSpots(lotSize,ParkingLotImage,widthHeight):
         openspots = (total_area // avg_area)
     outPut = ('There are ' +str(openspots) + ' open spots in ' + ParkingLotImage[:-4] + '\n')
 
-    cv2.imshow('original', img)
-    cv2.imshow('hopeful', image2)
+    #cv2.imshow('original', img)
+    #cv2.imshow('hopeful', image2)
     
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
 
 
 
@@ -86,6 +88,6 @@ cv2.imshow('hopeful', image2)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 '''
-
-print(openSpots(14,'aerial2.jpg',(50,120)))
+print(openSpots(sys.argv[1],sys.argv[2],sys.argv[3]))
+#print(openSpots(14,'aerial2.jpg',(50,120)))
 

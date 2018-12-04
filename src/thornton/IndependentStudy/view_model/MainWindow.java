@@ -32,13 +32,14 @@ public class MainWindow {
     @FXML
     private TextArea OpenSpotsText;
     
-    private static final String IMAGE_PATH = "..\\..\\..\\";
+    private static final String IMAGE_PATH = "..\\..\\";
 
     @FXML
     void ButtonCLick(ActionEvent event) {
     	StringBuilder sb = new StringBuilder();
     	try {
-			Process p = Runtime.getRuntime().exec("py thresholding.py");
+
+			Process p = Runtime.getRuntime().exec("py thresholding.py 14 aerial2.jpg (50,120)");
 			BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line;
 			
@@ -55,6 +56,7 @@ public class MainWindow {
 		}
 		Image img1 = new Image("file:" + IMAGE_PATH + "aerial2.jpg");
 		Image img2 = new Image("file:" + IMAGE_PATH + "thresholdImage.jpg");
+		
 		
 			this.imgView1.setImage(img1);
 			this.imgView2.setImage(img2);
