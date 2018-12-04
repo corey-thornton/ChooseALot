@@ -21,7 +21,7 @@
             </Text>
          </children>
       </Pane>
-      <Button fx:id="button" layoutX="405.0" layoutY="672.0" mnemonicParsing="false" onAction="#ButtonCLick" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: #228b22; -fx-border-color: #39ff14; -fx-border-width: 3; -fx-text-fill: #39ff14;" styleClass="executeBtn" stylesheets="@../../../../../chooseAlotMain.css" text="View Lot " />
+      <Button fx:id="button" layoutX="405.0" layoutY="672.0" mnemonicParsing="false" onAction="#ButtonCLick" prefHeight="52.0" prefWidth="200.0" style="-fx-background-color: #228b22; -fx-border-color: #39ff14; -fx-border-width: 3; -fx-text-fill: #39ff14;" stylesheets="@../../../../../ChooseALotMain.css" text="View Lot " />
       <Pane layoutX="556.0" layoutY="222.0" prefHeight="344.0" prefWidth="389.0" style="-fx-background-color: #000000; -fx-border-color: #228b22; -fx-border-width: 4;">
          <children>
             <ImageView id="sourceImage" fx:id="imgView2" fitHeight="281.0" fitWidth="357.0" layoutX="16.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />

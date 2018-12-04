@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -36,6 +37,7 @@ public class Main extends Application {
 		primaryStage.setTitle(Main.MAIN_WINDOW_TITLE);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
 	}
 
 	/**
@@ -51,13 +53,19 @@ public class Main extends Application {
 		launch(args);
 		installPythonModules();
 		
+		
 	}
 	
 	private static void installPythonModules() {
 		try {
 			Process installCV2 = Runtime.getRuntime().exec("py -m pip install opencv-python");
 			Process installPIL = Runtime.getRuntime().exec("py -m pip install pillow");
+			installCV2.waitFor();
+			installPIL.waitFor();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

@@ -38,6 +38,9 @@ public class MainWindow {
     private TextArea OpenSpotsText;
     
     private static final String IMAGE_PATH = "..\\..\\";
+    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: #4EA24E; -fx-border-color:  #39ff14; -fx-border-width: 3; ";
+    private static final String IDLE_BUTTON_STYLE = "-fx-background-color:  #228b22; -fx-border-color:  #39ff14 ; -fx-border-width: 3; ";
+    private static final String CLICKED_BUTTON_STYLE = "-fx-background-color:  #124712; -fx-border-color:  #39ff14 ; -fx-border-width: 3; ";
 
     @FXML
     void ButtonCLick(ActionEvent event) {
@@ -68,14 +71,21 @@ public class MainWindow {
 			this.OpenSpotsText.setText(sb.toString()); 
 
     }
+    
+   
 
     @FXML
     void initialize() {
+    	
         assert imgView1 != null : "fx:id=\"imgView1\" was not injected: check your FXML file 'mainWindow.fxml'.";
         assert button != null : "fx:id=\"button\" was not injected: check your FXML file 'mainWindow.fxml'.";
         assert imgView2 != null : "fx:id=\"imgView2\" was not injected: check your FXML file 'mainWindow.fxml'.";
         assert OpenSpotsText != null : "fx:id=\"OpenSpotsText\" was not injected: check your FXML file 'mainWindow.fxml'.";
         assert lotComboBox != null : "fx:id=\"lotComboBox\" was not injected: check your FXML file 'mainWindow.fxml'.";
+        this.button.setOnMousePressed(e -> button.setStyle(CLICKED_BUTTON_STYLE));
+        this.button.setOnMouseEntered(e -> button.setStyle(HOVERED_BUTTON_STYLE) );
+        this.button.setOnMouseExited(e -> button.setStyle(IDLE_BUTTON_STYLE));
+           
 
     }
 }
