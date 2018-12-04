@@ -5,7 +5,8 @@ from PIL import Image
 
 
 def openSpots(lotSize,ParkingLotImage,dimensions):
-	width
+
+	
     #Image Processing
     img = cv2.imread(ParkingLotImage)
     gray_image = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -19,7 +20,8 @@ def openSpots(lotSize,ParkingLotImage,dimensions):
     total_area = 0
     widths = []
     heights = []
-#67X137
+    widthHeight = parseTuple(dimensions)
+
     for c in contours:
         x,y,w,h = cv2.boundingRect(c)
         greaterThan = w > widthHeight[0] and h > widthHeight[1]
@@ -50,6 +52,14 @@ def openSpots(lotSize,ParkingLotImage,dimensions):
 
 
     return outPut
+    
+def parseTuple(sTuple):
+    
+    sections = sTuple.split(',')
+    firstInt = sections[0]
+    secondInt = sections[1]
+    newTuple =(int(firstInt[1:]),int(secondInt[:len(secondInt)-1]))
+    return newTuple    
 
 def average(ListOfNumbers):
     total = 0
@@ -67,27 +77,6 @@ def area(width,height):
 
 
 
-#print(box)
-
-
-
-
-
-
-'''
-cv2.imshow('contours',im2)
-cv2.imshow('original', img)
-
-cv2.imshow('gray', gray_image)
-
-cv2.imshow('threshold', threshold)
-
-cv2.imshow('hopeful', image2)
-
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
-'''
 print(openSpots(sys.argv[1],sys.argv[2],sys.argv[3]))
 #print(openSpots(14,'aerial2.jpg',(50,120)))
 

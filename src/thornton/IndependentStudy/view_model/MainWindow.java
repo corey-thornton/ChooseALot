@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
@@ -22,6 +23,10 @@ public class MainWindow {
 
     @FXML
     private ImageView imgView1;
+    
+
+    @FXML
+    private ComboBox<?> lotComboBox;
 
     @FXML
     private Button button;
@@ -70,6 +75,7 @@ public class MainWindow {
         assert button != null : "fx:id=\"button\" was not injected: check your FXML file 'mainWindow.fxml'.";
         assert imgView2 != null : "fx:id=\"imgView2\" was not injected: check your FXML file 'mainWindow.fxml'.";
         assert OpenSpotsText != null : "fx:id=\"OpenSpotsText\" was not injected: check your FXML file 'mainWindow.fxml'.";
+        assert lotComboBox != null : "fx:id=\"lotComboBox\" was not injected: check your FXML file 'mainWindow.fxml'.";
 
     }
 }
