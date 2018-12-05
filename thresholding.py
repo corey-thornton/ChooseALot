@@ -40,15 +40,18 @@ def openSpots(lotSize,ParkingLotImage,dimensions):
     if(avg_area == 0):
         openspots = lotSize
     else:
-        openspots = (total_area // avg_area)
+        openspots =  float(lotSize) - (total_area // avg_area)
     outPut = ('There are ' +str(openspots) + ' open spots in ' + ParkingLotImage[:-4] + '\n')
 
-    #cv2.imshow('original', img)
-    #cv2.imshow('hopeful', image2)
+    '''
+    cv2.imshow('original', img)
+    cv2.imshow('hopeful', image2)
     
-    #cv2.waitKey(0)
-    #cv2.destroyAllWindows()
-
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    print(total_area)
+    print(avg_area)
+    '''
 
 
     return outPut

@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -26,7 +29,7 @@ public class MainWindow {
     
 
     @FXML
-    private ComboBox<?> lotComboBox;
+    private ComboBox<String> lotComboBox;
 
     @FXML
     private Button button;
@@ -44,16 +47,22 @@ public class MainWindow {
 
     @FXML
     void ButtonCLick(ActionEvent event) {
+    	if(this.lotComboBox.getValue() == null ){
+    		this.OpenSpotsText.setText("Must Select A lot First");
+    		return;
+    	}
     	StringBuilder sb = new StringBuilder();
+    	String imageName = this.lotComboBox.getValue().replace(" ", "") + ".jpg";
     	try {
 
-			Process p = Runtime.getRuntime().exec("py thresholding.py 14 aerial2.jpg (50,120)");
+			Process p = Runtime.getRuntime().exec("py thresholding.py 20 "+ imageName+" (30,90)");
 			BufferedReader is = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line;
 			
 
 			while ((line = is.readLine()) != null)
-				//System.out.println(line);
+				
+
 				sb.append(line);
 				
 			
@@ -62,7 +71,8 @@ public class MainWindow {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		Image img1 = new Image("file:" + IMAGE_PATH + "aerial2.jpg");
+    	
+		Image img1 = new Image("file:" + IMAGE_PATH + imageName);
 		Image img2 = new Image("file:" + IMAGE_PATH + "thresholdImage.jpg");
 		
 		
@@ -85,8 +95,19 @@ public class MainWindow {
         this.button.setOnMousePressed(e -> button.setStyle(CLICKED_BUTTON_STYLE));
         this.button.setOnMouseEntered(e -> button.setStyle(HOVERED_BUTTON_STYLE) );
         this.button.setOnMouseExited(e -> button.setStyle(IDLE_BUTTON_STYLE));
-           
-
+        ObservableList<String> parkingLots = FXCollections.observableArrayList(
+                "Lot 1",
+                "Lot 2",
+                "Lot 3",
+                "Lot 4",
+                "Lot 5",
+                "Lot 6",
+                "Lot 7"
+            );
+        this.lotComboBox.getItems().addAll(parkingLots);
+        
+        
+       
     }
 }
 
