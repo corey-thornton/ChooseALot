@@ -43,12 +43,15 @@ def openSpots(lotSize,ParkingLotImage,dimensions):
         openspots =  float(lotSize) - (total_area // avg_area)
     outPut = ('There are ' +str(openspots) + ' open spots in ' + ParkingLotImage[:-4] + '\n')
 
+    image3 = Image.fromarray(image2)
+    image3.save("thresholdImage.jpg")
     '''
     cv2.imshow('original', img)
     cv2.imshow('hopeful', image2)
     
     cv2.waitKey(0)
     cv2.destroyAllWindows()
+    
     print(total_area)
     print(avg_area)
     '''
@@ -81,5 +84,5 @@ def area(width,height):
 
 
 print(openSpots(sys.argv[1],sys.argv[2],sys.argv[3]))
-#print(openSpots(14,'aerial2.jpg',(50,120)))
+#print(openSpots(14,'realisticLot1.jpg',(50,120)))
 
